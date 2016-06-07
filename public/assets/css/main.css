@@ -384,6 +384,7 @@ section.brand-bg .title {
     line-height: 59.5px;
 }
 
+
 /* --------------------------------- */
 /* 3. Navigation Menu Styles
  ----------------------------------- */
@@ -1007,11 +1008,14 @@ header.nav.hide-menu {
 .protfolio-image {
     position: relative;
     width: 100%;
+
     overflow: hidden;
 }
 
 .protfolio-image img {
+   
     display: block;
+
 }
 
 .protfolio-content {
