@@ -32,23 +32,23 @@ app.get('/', function(req,res){
 app.post('/email', function(req, res){
 
 console.log("this is req data :" + req.data);
-// 	console.log("this is req :"req);
+	console.log("this is req :"req);
 
-// // 	var mailOptions = {
-// //     from: '"Fred Foo 👥" <foo@blurdybloop.com>', // sender address 
-// //     to: 'bar@blurdybloop.com, baz@blurdybloop.com', // list of receivers 
-// //     subject: 'Hello ✔', // Subject line 
-// //     text: 'Hello world 🐴', // plaintext body 
-// //     html: '<b>Hello world 🐴</b>' // html body 
-// // };
+	var mailOptions = {
+    from: req.email, // sender address 
+    to: 'strongerpt@gmail.com', // list of receivers 
+    subject: req.subject, // Subject line 
+    text: req.message, // plaintext body 
+    html: '<b>Hello world 🐴</b>' // html body 
+};
  
-// // // send mail with defined transport object 
-// // transporter.sendMail(mailOptions, function(error, info){
-// //     if(error){
-// //         return console.log(error);
-// //     }
-// //     console.log('Message sent: ' + info.response);
-// // });
+// send mail with defined transport object 
+transporter.sendMail(mailOptions, function(error, info){
+    if(error){
+        return console.log(error);
+    }
+    console.log('Message sent: ' + info.response);
+});
 
 });
 
