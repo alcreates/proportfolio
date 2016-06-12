@@ -753,7 +753,7 @@ $('#contactForm').on('submit', function(e){
 
 	$.ajax({
 		type: "POST",
-		url: "/sendEmail",
+		url: "/email",
 		data: data
 	}).done(function(res){
 

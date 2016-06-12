@@ -29,9 +29,9 @@ app.get('/', function(req,res){
 	res.send(index.html);
 });
 
-// app.post('/sendEmail', function(req, res){
+app.post('/email', function(req, res){
 
-// 	console.log("this is req data :" + req.data);
+console.log("this is req data :" + req.data);
 // 	console.log("this is req :"req);
 
 // // 	var mailOptions = {
@@ -50,7 +50,7 @@ app.get('/', function(req,res){
 // //     console.log('Message sent: ' + info.response);
 // // });
 
-// });
+});
 
 
 // Starts the server to begin listening 
