@@ -756,13 +756,11 @@ $('#contactForm').on('submit', function(e){
 		url: "/email",
 		data: data
 	}).done(function(res){
-
-		var response = JSON.parse(res);
-
-		if ( response.OK ) {
-			success(response);
+		
+		if ( res ) {
+			success(res)
 		} else {
-			error(response);
+			error(res);
 		}
 
 

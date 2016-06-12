@@ -28,32 +28,33 @@ app.get('/', function(req,res){
 });
 
 app.post('/email', function(req, res){
- console.log(req);
+ console.log(req.body);
 var mailOpts, smtpTrans;
 
 	smtpTrans = nodemailer.createTransport('SMTP',{
 		service:'Gmail',
 		auth: {
-			user: "alcreates@gmail.com",
-			pass: "gatracho"
+			user: "alcreates101@gmail.com",
+			pass: "fqiucwixybwvamcb"
 		}
 	});
 
+
 	mailOpts = {
-		from: req.body.name + '$lt;' + req.body.email + '&gt;',
-		to: 'alcreates@gmail.com',
+		from: req.body.contactName,
+		to: 'alcreates101@gmail.com',
 		subject: 'Website contact form',
-		text: req.body.message
+		text: req.body.contactMessage
 	};
 
 	smtpTrans.sendMail(mailOpts, function (error, response) {
       //Email not sent
       if (error) {
-          res.json("error");
+          throw error
       }
       //Yay!! Email sent
       else {
-          res.json("email sent!");
+          res.send(200);
       }
   });
 
