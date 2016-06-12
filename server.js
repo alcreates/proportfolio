@@ -35,10 +35,10 @@ console.log("this is req data :" + req.data);
 	console.log("this is req :"req);
 
 	var mailOptions = {
-    from: req.body.email, // sender address 
+    from: req.email, // sender address 
     to: 'strongerpt@gmail.com', // list of receivers 
-    subject: req.body.subject, // Subject line 
-    text: req.body.message, // plaintext body 
+    subject: req.subject, // Subject line 
+    text: req.message, // plaintext body 
     html: '<b>Hello world 🐴</b>' // html body 
 };
  
