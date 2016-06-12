@@ -31,8 +31,8 @@ app.get('/', function(req,res){
 
 app.post('/sendEmail', function(req, res){
 
-
-	console.log(req);
+	console.log("this is req data :" + req.data);
+	console.log("this is req :"req);
 
 // 	var mailOptions = {
 //     from: '"Fred Foo 👥" <foo@blurdybloop.com>', // sender address 
