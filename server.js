@@ -18,8 +18,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.text());
 app.use(bodyParser.json({type:'application/vnd.api+json'}));
 
-var transporter = nodemailer.createTransport('smtps://user%40gmail.com:pass@smtp.gmail.com');
-
 
 
 // Routes
@@ -31,24 +29,33 @@ app.get('/', function(req,res){
 
 app.post('/email', function(req, res){
 
-console.log("this is req data :" + req.data);
-	console.log("this is req :"req);
+var mailOpts, smtpTrans;
 
-	var mailOptions = {
-    from: req.email, // sender address 
-    to: 'strongerpt@gmail.com', // list of receivers 
-    subject: req.subject, // Subject line 
-    text: req.message, // plaintext body 
-    html: '<b>Hello world 🐴</b>' // html body 
-};
- 
-// send mail with defined transport object 
-transporter.sendMail(mailOptions, function(error, info){
-    if(error){
-        return console.log(error);
-    }
-    console.log('Message sent: ' + info.response);
-});
+	smtpTrans = nodemailer.createTransport('SMTP',{
+		service:'Gmail',
+		auth: {
+			user: "alcreates@gmail.com",
+			pass: "gatracho"
+		}
+	});
+
+	mailOpts = {
+		from: req.body.name + '$lt;' + req.body.email + '&gt;',
+		to: 'alcreates@gmail.com',
+		subject: 'Website contact form',
+		text: req.body.message
+	};
+
+	smtpTrans.sendMail(mailOpts, function (error, response) {
+      //Email not sent
+      if (error) {
+          res.render('contact', { title: 'Raging Flame Laboratory - Contact', msg: 'Error occured, message not sent.', err: true, page: 'contact' })
+      }
+      //Yay!! Email sent
+      else {
+          res.render('contact', { title: 'Raging Flame Laboratory - Contact', msg: 'Message sent! Thank you.', err: false, page: 'contact' })
+      }
+  });
 
 });
 
