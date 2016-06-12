@@ -50,7 +50,7 @@ app.post('/sendEmail', function(req, res){
 //     console.log('Message sent: ' + info.response);
 // });
 
-})
+});
 
 
 // Starts the server to begin listening 
