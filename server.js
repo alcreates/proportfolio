@@ -28,7 +28,7 @@ app.get('/', function(req,res){
 });
 
 app.post('/email', function(req, res){
-
+ console.log(req);
 var mailOpts, smtpTrans;
 
 	smtpTrans = nodemailer.createTransport('SMTP',{
@@ -49,11 +49,11 @@ var mailOpts, smtpTrans;
 	smtpTrans.sendMail(mailOpts, function (error, response) {
       //Email not sent
       if (error) {
-          res.render('contact', { title: 'Raging Flame Laboratory - Contact', msg: 'Error occured, message not sent.', err: true, page: 'contact' })
+          res.json("error");
       }
       //Yay!! Email sent
       else {
-          res.render('contact', { title: 'Raging Flame Laboratory - Contact', msg: 'Message sent! Thank you.', err: false, page: 'contact' })
+          res.json("email sent!");
       }
   });
 
