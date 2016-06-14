@@ -546,8 +546,8 @@ $(document).ready(function($){
 	if ( $mapWrapper.length > 0 ) {
 		var map = new GMaps({
 			div: '#map',
-			lat : 23.79473005386213,
-			lng : 90.41430473327637,
+			lat : 40.755459,
+			lng : -73.98674,
 			scrollwheel: false,
 			draggable: draggableOp,
 			zoom: 16,
